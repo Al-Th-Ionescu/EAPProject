@@ -1,6 +1,7 @@
 package com.company;
 
 
+import java.util.Arrays;
 
 public class Main {
 
@@ -29,8 +30,8 @@ public class Main {
         System.out.println(" ");
         System.out.println(" ");
         Animal []a= new Animal[5];
-        a[0]= new Leu("leu",2,75);
-        a[1]= new Leu("leu",3,80);
+        a[0]= new Leu("leu",3,75);
+        a[1]= new Leu("leu",2,80);
         a[2]= new Zebra("zebra",10,5);
         a[2].se_inmulteste(a);
         a[1].se_inmulteste(a);
@@ -47,5 +48,8 @@ public class Main {
         a[1].doarme();
         a[2].doarme();
         a[2].mananca();
+       Arrays.sort(a,Animal::compareTo);
+        for (int i=0;i<a.length && a[i]!=null;i++)
+            a[i].printAnimal();
     }
 }

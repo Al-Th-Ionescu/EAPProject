@@ -22,4 +22,6 @@ vectorul ramane fara spatiu, se va afisa mesajul ca "Nu este spatiu suficient in
 deoarece vectorul de animale va avea alocat ca spatiu numarul maxim de animale care pot trai in
 incinta gradinii zoologice.
 Numarul animalelor (lei, zebre, erbivore, carnivore, totale) se pot afisa prin intermediul unor functii
-statice.
+statice. In clasa Animal am implementat metoda compareTo (folosind interfata Comparable) care ma va ajuta
+sa sortez vectorul de animale in functie de varsta. (Am mai creat functia de meniu, pe care nu am
+terminat-o de implementat inca).
