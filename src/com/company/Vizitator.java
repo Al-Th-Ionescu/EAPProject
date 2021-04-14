@@ -1,6 +1,8 @@
 package com.company;
 
-public abstract class Vizitator{
+
+
+public abstract class Vizitator implements Comparable<Vizitator> {
     protected String nume;
     protected String prenume;
     protected int varsta;
@@ -44,7 +46,6 @@ public abstract class Vizitator{
 
 
     public void printVizitator(){
-        System.out.println("~~~~~~~~Vizitator~~~~~~~");
         System.out.println("Nume:"+getNume());
         System.out.println("Prenume:"+getPrenume());
         System.out.println("Varsta:"+getVarsta());
@@ -64,5 +65,10 @@ public abstract class Vizitator{
 
     public static void printIncasariTotale(){
         System.out.println("S-au incasat in total " +getIncasariTotale()+" RON din vanzarile de bilete.");
+    }
+
+    @Override
+    public int compareTo(Vizitator o) {
+        return this.varsta-o.varsta;
     }
 }

@@ -2,7 +2,7 @@ package com.company;
 
 
 
-public abstract class Animal implements animal_behavior, Comparable<Animal>{
+public abstract class Animal implements animal_behavior{
     protected String specie;
     protected int varsta;
     protected int cantitateHrana;
@@ -60,10 +60,5 @@ public abstract class Animal implements animal_behavior, Comparable<Animal>{
 
     public void printAnimal(){
         System.out.println("~~~Animal din specia "+getSpecie()+" de "+getVarsta()+ " ani, care consuma "+getCantitateHrana()+" kg de hrana.");
-    }
-
-    @Override
-    public int compareTo(Animal a) {
-        return this.varsta-a.varsta;
     }
 }

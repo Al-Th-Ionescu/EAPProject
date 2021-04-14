@@ -1,6 +1,6 @@
 package com.company;
 
-public class Student extends Vizitator{
+public class Student extends Vizitator implements Comparable<Vizitator>{
     private static final double reducere=0.25;
     private static int nr_studenti=0;
     private static double incasare;
@@ -14,8 +14,9 @@ public class Student extends Vizitator{
 
     @Override
     public void printVizitator(){
+        System.out.println("~~~~~~STUDENT~~~~~~");
         super.printVizitator();
-        System.out.println("Bilet pentru student cu pretul de "+bilet.getPret()+" RON");
+        System.out.println("Bilet pentru student cu pretul de "+bilet.getPret()+" RON\n");
     }
 
     public static int getNr_Studenti() {
@@ -32,5 +33,10 @@ public class Student extends Vizitator{
 
     public static void printIncasareTotalaStudenti(){
         System.out.println("S-au incasat "+ Student.getIncasareTotala()+" RON din biletele pentru studenti.");
+    }
+
+    @Override
+    public int compareTo(Vizitator o) {
+        return this.varsta-o.varsta;
     }
 }

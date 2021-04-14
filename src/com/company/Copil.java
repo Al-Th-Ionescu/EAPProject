@@ -1,7 +1,9 @@
 package com.company;
 
 
-public class Copil extends Vizitator {
+import java.util.Comparator;
+
+public class Copil extends Vizitator implements Comparable<Vizitator> {
     private static final double reducere=0.5;
     private static int nr_copii=0;
     private static double incasare;
@@ -17,8 +19,9 @@ public class Copil extends Vizitator {
 
     @Override
     public void printVizitator(){
+        System.out.println("~~~~~~COPIL~~~~~~");
     super.printVizitator();
-        System.out.println("Bilet pentru copil cu pretul de "+bilet.getPret()+" RON");
+        System.out.println("Bilet pentru copil cu pretul de "+bilet.getPret()+" RON\n");
     }
 
     public static int getNr_Copii() {
@@ -38,5 +41,8 @@ public class Copil extends Vizitator {
     }
 
 
-
+    @Override
+    public int compareTo(Vizitator o) {
+        return this.varsta-o.varsta;
+    }
 }
