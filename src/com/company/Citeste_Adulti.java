@@ -1,0 +1,27 @@
+package com.company;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class Citeste_Adulti {
+    private final static String path = "src/com/company/Adulti.csv";
+
+
+
+
+    public static void Citeste_Adult(ArrayList<Vizitator> v) {
+        BufferedReader br;
+        try {
+            br = new BufferedReader(new FileReader(path));
+            String line = br.readLine();
+            while ((line = br.readLine()) != null) {
+                String[] values = line.split(",");
+                v.add(new Adult(values[0], values[1], Integer.parseInt(values[2])));
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

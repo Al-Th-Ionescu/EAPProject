@@ -50,6 +50,9 @@ public class Meniu {
         String prenume;
         int cantitateHrana;
         ArrayList<Vizitator> viz = new ArrayList<>();
+        Citeste_Copii.Citeste_Copil(viz);
+        Citeste_Studenti.Citeste_Student(viz);
+        Citeste_Adulti.Citeste_Adult(viz);
         while (optiune >= -1 && optiune <= 16) {
             System.out.println("Introduceti optiunea: ");
             optiune = scanner.nextInt();
@@ -58,28 +61,34 @@ public class Meniu {
                     System.out.println("Nume: ");
                     nume = scanner.next();
                     System.out.println("Prenume: ");
-                    prenume = scanner.next();
+                    scanner.skip("\n");
+                    prenume = scanner.nextLine();
                     System.out.println("Varsta: ");
                     varsta = scanner.nextInt();
                     viz.add(new Copil(nume, prenume, varsta));
+                    Scrie_Copii.Scrie_Copil(nume,prenume,varsta);
                 }
                 case 2 -> {
                     System.out.println("Nume: ");
                     nume = scanner.next();
                     System.out.println("Prenume: ");
-                    prenume = scanner.next();
+                    scanner.skip("\n");
+                    prenume = scanner.nextLine();
                     System.out.println("Varsta: ");
                     varsta = scanner.nextInt();
                     viz.add(new Student(nume, prenume, varsta));
+                    Scrie_Student.Scrie_Stud(nume,prenume,varsta);
                 }
                 case 3 -> {
                     System.out.println("Nume: ");
                     nume = scanner.next();
                     System.out.println("Prenume: ");
-                    prenume = scanner.next();
+                    scanner.skip("\n");
+                    prenume = scanner.nextLine();
                     System.out.println("Varsta: ");
                     varsta = scanner.nextInt();
                     viz.add(new Adult(nume, prenume, varsta));
+                    Scrie_Adulti.Scrie_Adult(nume,prenume,varsta);
                 }
                 case 4 -> {
                     Vizitator.printNr_Vizitatori();

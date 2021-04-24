@@ -5,7 +5,7 @@ public class Bilet {
 
     public Bilet(){
         this.pret =30;
-        System.out.println("Biletul a fost tiparit!");
+       // System.out.println("Biletul a fost tiparit!");
     }
 
     public double getPret() {
