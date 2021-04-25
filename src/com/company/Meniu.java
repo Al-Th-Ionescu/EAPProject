@@ -19,7 +19,7 @@ public class Meniu {
     }
 
     public void showMenu(){
-        System.out.println("In aceasta gradina zoologica este loc pentru 5 animale!\n\n");
+        System.out.println("In aceasta gradina zoologica este loc pentru 20 animale!\n\n");
         System.out.println("Alegeti optiunea dorita!");
         System.out.println("1- Tipariti bilet pentru copil");
         System.out.println("2- Tipariti bilet pentru student");
@@ -41,10 +41,10 @@ public class Meniu {
 
     public void MeniuUse() {
         showMenu();
-        Animal[] a = new Animal[5];
+        Animal[] a = new Animal[20];
         Scanner scanner = new Scanner(System.in);
         int optiune = 0;
-        int i = 0;
+        int i =0;
         String nume;
         int varsta;
         String prenume;
@@ -53,6 +53,7 @@ public class Meniu {
         Citeste_Copii.Citeste_Copil(viz);
         Citeste_Studenti.Citeste_Student(viz);
         Citeste_Adulti.Citeste_Adult(viz);
+        Citeste_Animale.Citeste_Animal(a,i);
         while (optiune >= -1 && optiune <= 16) {
             System.out.println("Introduceti optiunea: ");
             optiune = scanner.nextInt();
@@ -139,6 +140,7 @@ public class Meniu {
                     a[i] = new Leu("leu", varsta, cantitateHrana);
                     i++;
                     ServiciuAudit.Scrie_Audit("Adaugarea unui nou leu");
+                    Scrie_Animale.Scrie_Animal("Leu","Carnivor",varsta,cantitateHrana);
                 }
                 case 13 -> {
                     int nr=0;
@@ -163,6 +165,7 @@ public class Meniu {
                     a[i] = new Zebra("zebra", varsta, cantitateHrana);
                     i++;
                     ServiciuAudit.Scrie_Audit("Adaugarea unei noi zebre");
+                    Scrie_Animale.Scrie_Animal("Zebra","Erbivor",varsta,cantitateHrana);
                 }
                 case 15 -> {
                     int nr=0;

@@ -30,6 +30,7 @@ public class Zebra extends  Erbivor{
                 if (a[i] == null) {
                     System.out.println("O noua zebra s-a alaturat gradinii zoologice!");
                     a[i] = new Leu(specie, 0, 3);
+                    Scrie_Animale.Scrie_Animal("Zebra","Erbivor",0,3);
                     break;
                 }
                 if (i==a.length-1)

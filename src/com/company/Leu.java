@@ -31,6 +31,7 @@ public class Leu extends Carnivor{
                 if (a[i] == null) {
                     System.out.println("Un nou leu s-a alaturat gradinii zoologice!");
                     a[i] = new Leu(specie, 0, 3);
+                    Scrie_Animale.Scrie_Animal("Leu","Carnivor",0,3);
                     break;
                 }
                 if (i==a.length-1)

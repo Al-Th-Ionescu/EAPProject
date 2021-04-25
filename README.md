@@ -23,5 +23,13 @@ deoarece vectorul de animale va avea alocat ca spatiu numarul maxim de animale c
 incinta gradinii zoologice.
 Numarul animalelor (lei, zebre, erbivore, carnivore, totale) se pot afisa prin intermediul unor functii
 statice. In clasa Animal am implementat metoda compareTo (folosind interfata Comparable) care ma va ajuta
-sa sortez vectorul de animale in functie de varsta. (Am mai creat functia de meniu, pe care nu am
-terminat-o de implementat inca).
+sa sortez vectorul de animale in functie de varsta.
+
+
+Partea a doua 
+
+
+Am implementat un meniu pentru a facilita utilizarea aplicatiei. Am realizat fisiere csv pentru
+copii, studenti si adulti din care se citesc si incarca date, respectiv se poate scrie. De asemenea
+am facut un fisier csv pentru animalele din gradina zoologica in care se poate citi, scrie si se poate
+incarca. Am creat si o clasa audit pentru a inregistra toate optiunile alese din meniul aplicatiei.  
