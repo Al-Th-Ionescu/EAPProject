@@ -67,6 +67,7 @@ public class Meniu {
                     varsta = scanner.nextInt();
                     viz.add(new Copil(nume, prenume, varsta));
                     Scrie_Copii.Scrie_Copil(nume,prenume,varsta);
+                    ServiciuAudit.Scrie_Audit("Adaugat copil");
                 }
                 case 2 -> {
                     System.out.println("Nume: ");
@@ -78,6 +79,7 @@ public class Meniu {
                     varsta = scanner.nextInt();
                     viz.add(new Student(nume, prenume, varsta));
                     Scrie_Student.Scrie_Stud(nume,prenume,varsta);
+                    ServiciuAudit.Scrie_Audit("Adaugat student");
                 }
                 case 3 -> {
                     System.out.println("Nume: ");
@@ -89,37 +91,45 @@ public class Meniu {
                     varsta = scanner.nextInt();
                     viz.add(new Adult(nume, prenume, varsta));
                     Scrie_Adulti.Scrie_Adult(nume,prenume,varsta);
+                    ServiciuAudit.Scrie_Audit("Adaugat adult");
                 }
                 case 4 -> {
                     Vizitator.printNr_Vizitatori();
                     Vizitator.printIncasariTotale();
+                    ServiciuAudit.Scrie_Audit("Vizualizat numar total vizitatori + incasari totale");
                 }
                 case 5 -> {
                     Copil.printNr_Copii();
                     Copil.printIncasareTotalaCopii();
+                    ServiciuAudit.Scrie_Audit("Numarul de copii +  incasari");
                 }
                 case 6 -> {
                     Student.printNr_Studenti();
                     Student.printIncasareTotalaStudenti();
+                    ServiciuAudit.Scrie_Audit("Numarul de studenti + incasari");
                 }
                 case 7 -> {
                     Adult.printNr_Adulti();
                     Adult.printIncasareTotalaAdulti();
+                    ServiciuAudit.Scrie_Audit("Numarul de adulti + incasari");
                 }
                 case 8 ->{
                     viz.sort(Vizitator::compareTo);
                     for (Vizitator vizitator : viz)
                         vizitator.printVizitator();
-
+                    ServiciuAudit.Scrie_Audit("Afisarea vizitatorilor ordonati dupa varsta");
                 }
                 case 9 -> {
                     Animal.printNr_Animale();
+                    ServiciuAudit.Scrie_Audit("Afisarea numarului total de animale");
                 }
                 case 10 -> {
                     Carnivor.printNr_Carnivore();
+                    ServiciuAudit.Scrie_Audit("Afisarea numarului de animale carnivore");
                 }
                 case 11 -> {
                     Erbivor.printNr_Erbivore();
+                    ServiciuAudit.Scrie_Audit("Afisarea numarului de animale erbivore.");
                 }
                 case 12 -> {
                     System.out.println("Varsta leului: ");
@@ -128,6 +138,7 @@ public class Meniu {
                     cantitateHrana = scanner.nextInt();
                     a[i] = new Leu("leu", varsta, cantitateHrana);
                     i++;
+                    ServiciuAudit.Scrie_Audit("Adaugarea unui nou leu");
                 }
                 case 13 -> {
                     int nr=0;
@@ -141,6 +152,8 @@ public class Meniu {
                         }
                     if (nr==0)
                         System.out.println("Nu exista lei in gradina zoologica!");
+                    ServiciuAudit.Scrie_Audit("S-a incercat inmultirea leilor");
+
                 }
                 case 14 -> {
                     System.out.println("Varsta zebrei: ");
@@ -149,6 +162,7 @@ public class Meniu {
                     cantitateHrana = scanner.nextInt();
                     a[i] = new Zebra("zebra", varsta, cantitateHrana);
                     i++;
+                    ServiciuAudit.Scrie_Audit("Adaugarea unei noi zebre");
                 }
                 case 15 -> {
                     int nr=0;
@@ -162,10 +176,12 @@ public class Meniu {
                     }
                     if (nr==0)
                         System.out.println("Nu exista zebre in gradina zoologica!");
+                    ServiciuAudit.Scrie_Audit("S-a incercat inmultirea leilor");
                 }
                 case 16 -> {
                     for (int j = 0; j < a.length && a[j] != null; j++)
                         a[j].printAnimal();
+                    ServiciuAudit.Scrie_Audit("S-au afisat toate animalele");
                 }
             }
         }
