@@ -15,7 +15,12 @@ public class Copil extends Vizitator implements Comparable<Vizitator> {
         incasare=bilet.pret;
     }
 
-
+    public Copil(int id_vizitator, String nume, String prenume, int varsta){
+        super(id_vizitator,nume,prenume,varsta);
+        nr_copii++;
+        this.bilet.pret = bilet.getPret() - (reducere * bilet.getPret());
+        incasare=bilet.pret;
+    }
 
     @Override
     public void printVizitator(){
@@ -40,6 +45,9 @@ public class Copil extends Vizitator implements Comparable<Vizitator> {
         System.out.println("S-au incasat "+Copil.getIncasareTotala()+" RON din biletele pentru copii.");
     }
 
+    public static void setNr_copii() {
+        Copil.nr_copii = 0;
+    }
 
     @Override
     public int compareTo(Vizitator o) {

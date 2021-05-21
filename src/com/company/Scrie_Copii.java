@@ -8,12 +8,14 @@ public class Scrie_Copii {
     private final static String path = "src/com/company/Copii.csv";
 
 
-    public static void Scrie_Copil(String Nume,String Prenume,int Varsta)
+    public static void Scrie_Copil(int index,String Nume,String Prenume,int Varsta)
     {
         FileWriter wr;
         try {
             wr = new FileWriter((path),true);
             StringBuilder sb= new StringBuilder();
+            sb.append(index);
+            sb.append(",");
             sb.append(Nume);
             sb.append(",");
             sb.append(Prenume);

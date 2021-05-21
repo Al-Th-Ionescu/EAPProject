@@ -13,6 +13,12 @@ public class Adult extends Vizitator implements Comparable<Vizitator> {
         incasare=bilet.pret;
     }
 
+    public Adult(int id_vizitator, String nume, String prenume, int varsta){
+        super(id_vizitator,nume,prenume,varsta);
+        nr_adulti++;
+        incasare=bilet.pret;
+    }
+
     @Override
     public void printVizitator(){
         System.out.println("~~~~~~ADULT~~~~~~");
@@ -34,6 +40,10 @@ public class Adult extends Vizitator implements Comparable<Vizitator> {
 
     public static void printIncasareTotalaAdulti(){
         System.out.println("S-au incasat "+Adult.getIncasareTotala()+" RON din biletele pentru adulti.");
+    }
+
+    public static void setNr_adulti() {
+        Adult.nr_adulti = 0;
     }
 
     @Override

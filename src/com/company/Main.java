@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Meniu men= new Meniu();
         men.MeniuUse();
+       // VizDB.AfisareVizDB();
 //        Vizitator [] viz = new Vizitator[5];
 //        viz[0] = new Copil("Popescu","Andrei",4);
 //        viz[1]= new Adult("Iftime","Sorin",42);

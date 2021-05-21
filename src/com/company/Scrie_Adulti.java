@@ -7,12 +7,14 @@ public class Scrie_Adulti {
     private final static String path = "src/com/company/Adulti.csv";
 
 
-    public static void Scrie_Adult(String Nume,String Prenume,int Varsta)
+    public static void Scrie_Adult(int index,String Nume,String Prenume,int Varsta)
     {
         FileWriter wr;
         try {
             wr = new FileWriter((path),true);
             StringBuilder sb= new StringBuilder();
+            sb.append(index);
+            sb.append(",");
             sb.append(Nume);
             sb.append(",");
             sb.append(Prenume);

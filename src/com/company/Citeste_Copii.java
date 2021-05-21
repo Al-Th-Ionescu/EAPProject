@@ -21,7 +21,7 @@ public class Citeste_Copii {
             String line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(",");
-                v.add(new Copil(values[0], values[1], Integer.parseInt(values[2])));
+                v.add(new Copil(Integer.parseInt(values[0]),values[1], values[2], Integer.parseInt(values[3])));
             }
         } catch (IOException e) {
             e.printStackTrace();

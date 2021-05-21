@@ -8,6 +8,7 @@ public abstract class Vizitator implements Comparable<Vizitator> {
     protected int varsta;
     protected Bilet bilet;
     private static int nr_vizitatori=0;
+    private int id_vizitator;
 
 
     public Vizitator(String nume, String prenume, int varsta){
@@ -16,6 +17,16 @@ public abstract class Vizitator implements Comparable<Vizitator> {
         this.varsta=varsta;
         bilet=new Bilet();
         nr_vizitatori++;
+        this.id_vizitator=nr_vizitatori;
+    }
+
+    public Vizitator(int id_vizitator,String nume, String prenume, int varsta){
+        this.id_vizitator=id_vizitator;
+        this.nume=nume;
+        this.prenume=prenume;
+        this.varsta=varsta;
+        nr_vizitatori++;
+        bilet=new Bilet();
     }
 
 
@@ -44,8 +55,11 @@ public abstract class Vizitator implements Comparable<Vizitator> {
         this.varsta = varsta;
     }
 
+    public int getId_vizitator(){return id_vizitator;}
+
 
     public void printVizitator(){
+        System.out.println("ID Vizitator:"+getId_vizitator());
         System.out.println("Nume:"+getNume());
         System.out.println("Prenume:"+getPrenume());
         System.out.println("Varsta:"+getVarsta());
@@ -65,6 +79,10 @@ public abstract class Vizitator implements Comparable<Vizitator> {
 
     public static void printIncasariTotale(){
         System.out.println("S-au incasat in total " +getIncasariTotale()+" RON din vanzarile de bilete.");
+    }
+
+    public static void setNr_vizitatori() {
+        Vizitator.nr_vizitatori =0;
     }
 
     @Override

@@ -8,12 +8,14 @@ public class Scrie_Student {
     private final static String path = "src/com/company/Studenti.csv";
 
 
-    public static void Scrie_Stud(String Nume,String Prenume,int Varsta)
+    public static void Scrie_Stud(int index,String Nume,String Prenume,int Varsta)
     {
         FileWriter wr;
         try {
             wr = new FileWriter((path),true);
             StringBuilder sb= new StringBuilder();
+            sb.append(index);
+            sb.append(",");
             sb.append(Nume);
             sb.append(",");
             sb.append(Prenume);

@@ -15,7 +15,7 @@ public class Meniu {
         if (men==null){
             men = new Meniu();
         }
-            return men;
+        return men;
     }
 
     public void showMenu(){
@@ -37,6 +37,10 @@ public class Meniu {
         System.out.println("14- Adaugati o zebra noua (primita de la alta gradina zoologica)");
         System.out.println("15- Nasterea unei noi zebre in captivitate");
         System.out.println("16- Afisati toate animalele din gradina zoologica");
+        System.out.println("17- Gaseste un vizitator dupa nume+prenume");
+        System.out.println("18 - Editeaza un vizitator");
+        System.out.println("19 - Sterge un vizitator");
+        System.out.println("20 - Exit");
     }
 
     public void MeniuUse() {
@@ -50,11 +54,14 @@ public class Meniu {
         String prenume;
         int cantitateHrana;
         ArrayList<Vizitator> viz = new ArrayList<>();
-        Citeste_Copii.Citeste_Copil(viz);
-        Citeste_Studenti.Citeste_Student(viz);
-        Citeste_Adulti.Citeste_Adult(viz);
-        Citeste_Animale.Citeste_Animal(a,i);
-        while (optiune >= -1 && optiune <= 16) {
+        VizDB.LoadCopii(viz);
+        VizDB.LoadStudenti(viz);
+        VizDB.LoadAdulti(viz);
+        // Citeste_Copii.Citeste_Copil(viz);
+        // Citeste_Studenti.Citeste_Student(viz);
+        // Citeste_Adulti.Citeste_Adult(viz);
+        // Citeste_Animale.Citeste_Animal(a,i);
+        while (optiune >= -1 && optiune <= 19) {
             System.out.println("Introduceti optiunea: ");
             optiune = scanner.nextInt();
             switch (optiune) {
@@ -67,7 +74,9 @@ public class Meniu {
                     System.out.println("Varsta: ");
                     varsta = scanner.nextInt();
                     viz.add(new Copil(nume, prenume, varsta));
-                    Scrie_Copii.Scrie_Copil(nume,prenume,varsta);
+                    int index=viz.get(viz.size()-1).getId_vizitator();
+                    Scrie_Copii.Scrie_Copil(index,nume,prenume,varsta);
+                    VizDB.AddVizDB(viz.get(viz.size()-1));
                     ServiciuAudit.Scrie_Audit("Adaugat copil");
                 }
                 case 2 -> {
@@ -79,7 +88,9 @@ public class Meniu {
                     System.out.println("Varsta: ");
                     varsta = scanner.nextInt();
                     viz.add(new Student(nume, prenume, varsta));
-                    Scrie_Student.Scrie_Stud(nume,prenume,varsta);
+                    int index=viz.get(viz.size()-1).getId_vizitator();
+                    Scrie_Student.Scrie_Stud(index,nume,prenume,varsta);
+                    VizDB.AddVizDB(viz.get(viz.size()-1));
                     ServiciuAudit.Scrie_Audit("Adaugat student");
                 }
                 case 3 -> {
@@ -91,7 +102,9 @@ public class Meniu {
                     System.out.println("Varsta: ");
                     varsta = scanner.nextInt();
                     viz.add(new Adult(nume, prenume, varsta));
-                    Scrie_Adulti.Scrie_Adult(nume,prenume,varsta);
+                    int index=viz.get(viz.size()-1).getId_vizitator();
+                    Scrie_Adulti.Scrie_Adult(index,nume,prenume,varsta);
+                    VizDB.AddVizDB(viz.get(viz.size()-1));
                     ServiciuAudit.Scrie_Audit("Adaugat adult");
                 }
                 case 4 -> {
@@ -145,10 +158,10 @@ public class Meniu {
                 case 13 -> {
                     int nr=0;
                     for (int j = 0; j < a.length && a[j] != null; j++)
-                     if (a[j].getSpecie().equals("Leu")) {
+                        if (a[j].getSpecie().equals("Leu")) {
                             nr++;
                             if (nr==2)
-                            break;
+                                break;
                             else
                                 a[j].se_inmulteste(a);
                         }
@@ -176,7 +189,7 @@ public class Meniu {
                                 break;
                             else
                                 a[j].se_inmulteste(a);
-                    }
+                        }
                     if (nr==0)
                         System.out.println("Nu exista zebre in gradina zoologica!");
                     ServiciuAudit.Scrie_Audit("S-a incercat inmultirea leilor");
@@ -186,8 +199,30 @@ public class Meniu {
                         a[j].printAnimal();
                     ServiciuAudit.Scrie_Audit("S-au afisat toate animalele");
                 }
+                case 17 ->{
+                    System.out.println("Va rugam introduceti numele: ");
+                    nume=scanner.next();
+                    System.out.println("Va rugam introduceti prenumele: ");
+                    prenume=scanner.next();
+                    int k=0;
+                    for (Vizitator vizitator : viz){
+                        if (vizitator.getNume().equals(nume) && vizitator.getPrenume().equals(prenume))
+                        { vizitator.printVizitator();
+                            k++;}}
+                    if (k==0)
+                        System.out.println("Nu a fost gasit vizitatorul cautat!");
+                    ServiciuAudit.Scrie_Audit("S-a cautat un vizitator");
+                }
+                case 18 ->{
+                    VizDB.EditViz(viz);
+                    ServiciuAudit.Scrie_Audit("S-a editat un vizitator");
+                }
+                case 19 ->{
+                    VizDB.StergeViz(viz);
+                    ServiciuAudit.Scrie_Audit("S-a sters un vizitator");
+                }
             }
         }
-            scanner.close();
+        scanner.close();
     }
 }
